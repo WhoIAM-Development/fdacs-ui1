@@ -1,0 +1,60 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  - master
+  - main
+  - dev
+
+variables:
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  displayName: 'Install Node.js'
+  inputs:
+    versionSpec: '18.13.0'
+
+- task: Npm@1
+  displayName: 'NPM Install'
+  inputs:
+    command: 'install'
+
+# Nonproduction output (sass maps, no minification)
+- task: Npm@1
+  displayName: 'Dev build for non-main branch'
+  inputs:
+    command: 'custom'
+    customCommand: 'run build'
+  condition: eq(variables.isMain, 'false')
+
+# Production-ready output
+- task: Npm@1
+  displayName: 'Production build for main branch'
+  inputs:
+    command: 'custom'
+    customCommand: 'run build:prod'
+  condition: eq(variables.isMain, 'true')
+
+#Copy Files
+- task: CopyFiles@2
+  displayName: 'Copy build artifacts to staging directory'
+  inputs:
+    Contents: |
+      dist/**
+    TargetFolder: $(Build.ArtifactStagingDirectory)
+    CleanTargetFolder: false
+    OverWrite: true
+
+#Publish Artifact
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish build artifacts'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/dist'
+    ArtifactName: 'B2CUI'
+    publishLocation: 'Container'

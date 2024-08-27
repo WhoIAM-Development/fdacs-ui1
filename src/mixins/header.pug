@@ -1,0 +1,20 @@
+mixin header(title, css=[], scripts=[])
+  - var allCss = Array.from(new Set([...defaultCss, ...css]))
+  - var allScripts = Array.from(new Set([...defaultScripts, ...scripts]))
+  head
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+    title= `${title} | ${clientName}`
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    if isLocalDev
+      script(src=`${baseUrl}/js/jquery.min.js` type="application/javascript")
+      script(src=`${baseUrl}/js/bootstrap.min.js` type="application/javascript")
+      link(href=`${baseUrl}/css/b2cLocalTemplate.css` rel='stylesheet' type='text/css')
+
+    each fileName in allScripts
+      script(src=`${baseUrl}/js/${fileName}?v=${cacheBustingKey}`)
+
+    link(href=`${baseUrl}/assets/images/${faviconName}` rel="icon" type="image/x-icon")
+    link(href='https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet' type='text/css')
+    each fileName in allCss
+      link(href=`${baseUrl}/css/${fileName}?v=${cacheBustingKey}` rel='stylesheet' type='text/css')

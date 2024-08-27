@@ -1,0 +1,85 @@
+#AmazonExchange {
+	background-image: url(../assets/idp_logos/colored/amazon.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/amazon.svg);
+	}
+}
+#FacebookExchange {
+	background-image: url(../assets/idp_logos/colored/facebook.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/facebook.svg);
+	}
+}
+#GitHubExchange {
+	background-image: url(../assets/idp_logos/colored/github.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/github.svg);
+	}
+}
+#GoogleExchange {
+	background-image: url(../assets/idp_logos/colored/google.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/google.svg);
+	}
+}
+#LinkedInExchange {
+	background-image: url(../assets/idp_logos/colored/linkedin.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/linkedin.svg);
+	}
+}
+#MicrosoftAccountExchange {
+	background-image: url(../assets/idp_logos/colored/microsoft.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/microsoft.svg);
+	}
+}
+#QQExchange {
+	background-image: url(../assets/idp_logos/colored/qq.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/qq.svg);
+	}
+}
+#TwitterExchange {
+	background-image: url(../assets/idp_logos/colored/twitter.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/twitter.svg);
+	}
+}
+#WeChatExchange {
+	background-image: url(../assets/idp_logos/colored/wechat.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/wechat.svg);
+	}
+}
+#WeiboExchange {
+	background-image: url(../assets/idp_logos/colored/weibo.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/weibo.svg);
+	}
+}
+.buttons {
+	#cancel {
+		&:before {
+			content: url(../assets/images/left-arrow.svg);
+		}
+	}
+}
+#SignInWithLogonNameExchange {
+	background-image: url(../assets/idp_logos/colored/local.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/local.svg);
+	}
+}
+#SignUpWithLogonEmailExchange {
+	background-image: url(../assets/idp_logos/colored/local.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/local.svg);
+	}
+}
+#SignUpWithLogonNameExchange {
+	background-image: url(../assets/idp_logos/colored/local.svg);
+	&:hover {
+		background-image: url(../assets/idp_logos/white/local.svg);
+	}
+}

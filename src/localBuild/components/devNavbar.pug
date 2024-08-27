@@ -1,0 +1,28 @@
+mixin devNavbar()
+  - let defaultDropdownText = `Select Template`;
+  - let collapseTargetName = 'navbar-collapse-tpl-links';
+
+  script.
+    window.SETTINGS = {};
+    window.SETTINGS.defaultDropdownText = "#{defaultDropdownText}";
+    window.SETTINGS.templateMapping = JSON.parse('!{JSON.stringify(templateMapping)}')
+
+  script(src=`${baseUrl}/js/localTemplateCommon.js` type="application/javascript")
+  nav.navbar.navbar-default.navbar-fixed-top
+    .container-fluid
+      button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target=collapseTargetName aria-expanded='false')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      .navbar-header
+        a.navbar-brand(href='#') B2C Local Development
+      .collapse.navbar-collapse(id=collapseTargetName)
+        ul.nav.navbar-nav
+          li.dropdown
+            a#dropdown-label.dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+              | #{defaultDropdownText}
+              span.caret
+            ul#template-select.dropdown-menu
+        button#clear-template.btn.btn-warning.navbar-btn(type='button') Clear Template
+

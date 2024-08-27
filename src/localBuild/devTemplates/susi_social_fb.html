@@ -1,0 +1,107 @@
+<div id="api" data-name="Unified">
+  <div
+    class="claims-provider-list-buttons social"
+    aria-label="Sign in with your social account"
+    role="form"
+  >
+    <div class="intro">
+      <h2 aria-level="1">Sign in with your social account</h2>
+    </div>
+    <div class="options">
+      <div>
+        <button
+          class="accountButton firstButton claims-provider-selection"
+          id="FacebookExchange"
+          role="link"
+          autofocus=""
+        >
+          Facebook
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">
+    <h2>OR</h2>
+  </div>
+  <form
+    id="localAccountForm"
+    action="JavaScript:void(0);"
+    class="localAccount"
+    aria-label="Sign in with your email address"
+    data-bitwarden-watching="1"
+  >
+    <div class="intro">
+      <h2 aria-level="1">Sign in with your email address</h2>
+    </div>
+    <div
+      class="error pageLevel"
+      aria-hidden="true"
+      role="alert"
+      style="display: none"
+    >
+      <p></p>
+    </div>
+    <div class="entry">
+      <div class="entry-item">
+        <label for="signInName"> Email Address </label>
+        <div
+          class="error itemLevel"
+          aria-hidden="true"
+          role="alert"
+          style="display: none"
+        >
+          <p></p>
+        </div>
+        <input
+          type="text"
+          id="signInName"
+          name="Email Address"
+          title="Please enter a valid Email Address"
+          autofocus=""
+          placeholder="Email Address"
+          aria-label="Email Address"
+        />
+      </div>
+      <div class="entry-item">
+        <div class="password-label">
+          <label for="password">Password</label>
+        </div>
+        <div class="error itemLevel" aria-hidden="true" style="display: none">
+          <p role="alert"></p>
+        </div>
+        <input
+          type="password"
+          id="password"
+          name="Password"
+          placeholder="Password"
+          aria-label="Password"
+          autocomplete="current-password"
+          aria-required="true"
+        />
+        <a
+          id="forgotPassword"
+          href="#"
+          >Forgot your password?</a
+        >
+      </div>
+      <div class="working"></div>
+
+      <div class="buttons">
+        <button id="next" type="submit" form="localAccountForm">Sign in</button>
+      </div>
+    </div>
+    <div class="divider">
+      <h2>OR</h2>
+    </div>
+    <div class="create">
+      <p>
+        Don't have an account?<a
+          id="createAccount"
+          href="#"
+          >Sign up now</a
+        >
+      </p>
+    </div>
+  </form>
+</div>

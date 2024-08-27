@@ -1,0 +1,12 @@
+mixin renderBody(containerClass)
+  if isLocalDev
+    include ../localBuild/components/devNavbar.pug
+    +devNavbar()
+  body
+    div(class='container ' + containerClass)
+      .row
+        .col-lg-6
+          .panel.panel-default
+            .panel-body
+              img.companyLogo(alt='Company Logo' src=`${baseUrl}/assets/images/${imageName}`)
+              #api

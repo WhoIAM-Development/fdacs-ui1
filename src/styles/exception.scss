@@ -1,0 +1,85 @@
+.error-page-help {
+	font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	margin-bottom: 50px;
+	text-align: justify;
+}
+.error-page-messagedetails {
+	font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+	margin-bottom: 21px;
+	text-align: justify;
+}
+body {
+	font-family: wf_segoe-ui_normal,"Segoe UI","Segoe WP",Tahoma,Arial,sans-serif;
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+	margin: auto;
+}
+a {
+	font-weight: 700;
+	text-decoration: none;
+	color: #696969;
+	&:visited {
+		font-weight: 400;
+	}
+	&:hover {
+		text-decoration: underline;
+	}
+}
+h2 {
+	font-weight: 700;
+	font-size: 1.1em;
+	padding-bottom: 3px;
+	text-align: justify;
+}
+img {
+	border: 0;
+	height: 70px;
+}
+.error-page {
+	margin: 110px 0 0 80px;
+	position: relative;
+}
+.error-page-content {
+	top: 110px;
+	width: 400px;
+	color: #000;
+}
+#api {
+	height: 100%;
+}
+.error-page-image {
+	position: absolute;
+	top: 0;
+	left: 320px;
+}
+.error-body {
+	position: absolute;
+	top: 750px;
+	left: 16px;
+	right: 16px;
+}
+.api_container {
+	div {
+		padding-bottom: 0;
+	}
+}
+.col-lg-6 {
+	height: 100%;
+}
+.panel {
+	margin: auto;
+}
+.panel_layout {
+	margin: auto;
+}
+.panel_layout_row {
+	margin: auto;
+}
+html {
+	margin: auto;
+}

@@ -1,0 +1,17 @@
+{
+  "en": {
+      "language_code": "en",
+      "disclaimer": "(en) test disclaimer",
+      "password_rules": {
+          "title": "Password Rules",
+          "character_length_rule": "Between 8 and 64 characters",
+          "not_email_rule": "Cannot be the same as email",
+          "special_character_rule": "Contains a special character",
+          "number_rule": "Contains a number",
+          "uppercase_rule": "Contains an uppercase character",
+          "lowercase_rule": "Contains a lowercase character",
+          "any_three": "Must satisfy any three of the following"
+      },
+      "phoneFactor_verificationCode_PlaceHolder":"Enter your 6 digit code"
+  }
+}

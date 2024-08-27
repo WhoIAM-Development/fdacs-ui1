@@ -1,0 +1,19 @@
+{
+    "baseUrl": "{Settings:StorageBaseUrl}",
+    "clientName": "FDACS",
+    "imageName": "logo.png",
+    "backgroundName": "background.jpg",
+    "cacheBustingKey": "{Settings:Build.BuildNumber}",
+    "faviconName": "favicon.png",
+    "defaultScripts": ["load-dfp.js", "api-translate.js"],
+    "defaultCss": ["assets.css", "common.css"],
+    "activeLang": "en",
+    "templateMapping": {
+      "unified": ["susi_landing.html", "susi_social_fb.html"],
+      "selfAsserted": ["susi_sign_up.html"],
+      "idpselector": ["*"],
+      "error": ["*"],
+      "multifactor-1.0.0": ["*"],
+      "updateprofile": ["*"]
+    }
+}

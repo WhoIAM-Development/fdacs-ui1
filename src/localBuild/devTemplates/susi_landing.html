@@ -1,0 +1,47 @@
+<div id="api" data-name="Unified">
+  <form id="localAccountForm" action="JavaScript:void(0);" class="localAccount" aria-label="Sign in with your sign in name">
+    <div class="intro">
+      <h2 aria-level="1">
+        Sign in with your sign in name
+      </h2>
+    </div>
+    <div class="error pageLevel" aria-hidden="true" role="alert" style="display: none;">
+      <p></p>
+    </div>
+    <div class="entry">
+      <div class="entry-item">
+        <label for="signInName">
+          Sign in name
+        </label>
+        <div class="error itemLevel" aria-hidden="true" role="alert" style="display: none;">
+          <p></p>
+        </div>
+        <input type="text" id="signInName" name="Sign in name" title="Please enter a valid Sign in name" autofocus="" placeholder="Sign in name" aria-label="Sign in name">
+      </div>
+        <div class="entry-item">
+          <div class="password-label">
+            <label for="password">Password</label>
+          </div>
+          <div class="error itemLevel" aria-hidden="true" style="display: none;">
+            <p role="alert"></p>
+          </div>
+          <input type="password" id="password" name="Password" placeholder="Password" aria-label="Password" autocomplete="current-password" aria-required="true">
+              <a id="forgotPassword" href="#">Forgot your password?</a>
+        </div>
+      <div class="working"></div>
+
+
+      <div class="buttons">
+        <button id="next" type="submit" form="localAccountForm">Sign in</button>
+      </div>
+    </div>
+          <div class="divider">
+            <h2>OR</h2>
+          </div>
+          <div class="create">
+            <p>
+              Don't have an account?<a id="createAccount" href="#">Sign up now</a>
+            </p>
+          </div>
+  </form>
+</div>

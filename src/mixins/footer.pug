@@ -1,0 +1,14 @@
+mixin renderFooter(scripts=[])
+  - var allScripts = Array.from(new Set([...scripts]))
+
+  style(type="text/css").
+    :root {
+      --footerHeight: 35px;
+    }
+  footer
+    each fileName in allScripts
+      script(src=`${baseUrl}/js/${fileName}?v=${cacheBustingKey} defer`)
+
+    div.text-center
+      p
+        |  &copy; #{clientName} #{new Date().getFullYear()}
