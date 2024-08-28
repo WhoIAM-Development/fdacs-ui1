@@ -62,3 +62,4 @@ jobs:
         action: upload
         connection_string: ${{secrets.CONNECTION_STRING}}
         container_name: ${{vars.CONTAINER_NAME}}
+        local_directory: dist
