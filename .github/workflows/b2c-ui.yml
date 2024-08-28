@@ -5,10 +5,12 @@ on:
     branches: [  main, dev ]
   pull_request:
     branches: [  main, dev ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Dev
 
     steps:
     - uses: actions/checkout@v3
@@ -56,7 +58,7 @@ jobs:
     - name: Azure Blob File Copy
       uses: azure/CLI@v1
       env:
-        CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
-        CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
+        CONNECTION_STRING: ${{secrets.CONNECTION_STRING}}
+        CONTAINER_NAME: ${{CONTAINER_NAME}}
       with:
         inlineScript: |
