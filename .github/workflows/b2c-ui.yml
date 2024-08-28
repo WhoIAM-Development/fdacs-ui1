@@ -58,6 +58,6 @@ jobs:
     - name: Azure Blob File Copy
       uses: ulaval/azure-blob-copy-action@v1
       with:
-      action: upload
+        action: upload
         connection_string: ${{secrets.CONNECTION_STRING}}
         container_name: ${{vars.CONTAINER_NAME}}
