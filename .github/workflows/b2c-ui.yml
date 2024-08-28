@@ -38,7 +38,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'main' || github.ref == 'dev'
 
     steps:
     - name: Download artifact
