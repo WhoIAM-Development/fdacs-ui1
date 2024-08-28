@@ -1,65 +1,66 @@
 name: Node.js CI/CD
 
+# Trigger the workflow on push or pull requests to the main or dev branches, or manually using workflow_dispatch
 on:
   push:
-    branches: [  main, dev ]
+    branches: [main, dev]
   pull_request:
-    branches: [  main, dev ]
+    branches: [main, dev]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: Dev
+    environment: Dev  # Specifies the environment this job runs in
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3  # Checkout the code from the repository
 
     - name: Use Node.js 20
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v3  # Setup Node.js version 20 for the environment
       with:
         node-version: '20'
 
     - name: Install dependencies
-      run: npm ci
+      run: npm ci  # Install project dependencies using npm ci for a clean install
 
     - name: Build for non-main branch
-      if: github.ref_name != 'main'
+      if: github.ref_name != 'main'  # Conditional step to build for branches other than main
       run: npm run build
 
     - name: Production build for main branch
-      if: github.ref_name == 'main'
+      if: github.ref_name == 'main'  # Conditional step to build with production settings for main branch
       run: npm run build:prod
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v4  # Upload the build artifacts for use in the deploy job
       with:
         name: B2CUI
-        path: dist
+        path: dist  # Path to the build directory
 
   deploy:
-    needs: build
+    needs: build  # Ensure the deploy job runs only if the build job succeeds
     runs-on: ubuntu-latest
-    environment: Dev
+    environment: Dev  # Specifies the environment this job runs in
 
     steps:
     - name: Download artifact
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v4  # Download the artifact produced in the build job
       with:
         name: B2CUI
-        path: dist
+        path: dist  # Path where the artifact will be downloaded
 
     - name: UI Build / Replace Configuration
-      uses: cschleiden/replace-tokens@v1
+      uses: cschleiden/replace-tokens@v1  # Replace tokens in configuration files with environment-specific values
       with:
         tokenPrefix: '{Settings:'
         tokenSuffix: '}'
-        files: '**/*.html,**/*.css'
+        files: '**/*.html,**/*.css'  # Target files for token replacement
 
     - name: Azure Blob File Copy
-      uses: ulaval/azure-blob-copy-action@v1
+      uses: ulaval/azure-blob-copy-action@v1  # Upload the files to Azure Blob Storage
       with:
         action: upload
-        connection_string: ${{secrets.CONNECTION_STRING}}
-        container_name: ${{vars.CONTAINER_NAME}}
-        local_directory: dist
+        connection_string: ${{secrets.CONNECTION_STRING}}  # Connection string for Azure Blob Storage (stored as secret)
+        container_name: ${{vars.CONTAINER_NAME}}  # Name of the Azure Blob Storage container (stored as variable)
+        local_directory: dist  # Local directory containing the files to be uploaded
