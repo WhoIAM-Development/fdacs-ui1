@@ -56,7 +56,7 @@ jobs:
         files: '**/*.html,**/*.css'
 
     - name: Azure Blob File Copy
-      uses: azure/CLI@v1
+      uses: ulaval/azure-blob-copy-action@v1
       env:
         CONNECTION_STRING: ${{secrets.CONNECTION_STRING}}
         CONTAINER_NAME: ${{vars.CONTAINER_NAME}}
